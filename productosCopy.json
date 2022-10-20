@@ -1,0 +1,30 @@
+[{
+    "id": 1,
+    "nombre": "producto1",
+    "precio": 1000
+},
+{
+    "id": 2,
+    "nombre": "producto2",
+    "precio": 2000
+},
+{
+    "id": 3,
+    "nombre": "producto3",
+    "precio": 3000
+},
+{
+    "title": "producto1",
+    "price": 1000,
+    "thumbnail": "https://cdn3.iconfinder.com/data/icons/education-209/64/ruler-triangle-stationary-school-256.png"
+},
+{
+    "title": "producto2",
+    "price": 2000,
+    "thumbnail": "https://cdn3.iconfinder.com/data/icons/education-209/64/calculator-math-tool-school-256.png"
+},
+{
+    "title": "producto3",
+    "price": 3000,
+    "thumbnail": "https://cdn3.iconfinder.com/data/icons/education-209/64/globe-earth-geograhy-planet-school-256.png"
+}]

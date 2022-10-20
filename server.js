@@ -16,7 +16,7 @@ app.get('/productos', async (req, res) => {
     res.send(prods)
 })
 
-app.get('/productoRandom', async (req, res) => {
+app.get('/productosRandom', async (req, res) => {
     const prods = await productos.getAll()
     const randomId = parseInt(Math.random() * prods.length)
     console.log(randomId)

@@ -18,7 +18,11 @@ class Contenedor {
             const { id } = req.params
             const content = JSON.parse(await fs.readFile(`./productos.json`,'utf-8'))
             const elementosFiltrados = content.filter(e => e.id === (parseInt(id)))
-            res.send(elementosFiltrados)
+            if(elementosFiltrados.length === 0){
+                res.send({ error : 'producto no encontrado' })
+            } else {
+                res.send(elementosFiltrados)
+            }
         } catch (error) {
             res.send(error)
             null
@@ -52,7 +56,8 @@ class Contenedor {
             let index = content.findIndex(prod => prod.id === identificacion)
             const newProduct = {title, price, thumbnail, "id": identificacion};
             if(index === -1 ) {
-                res.send("no existe esa id") 
+                res.send({ error : 'producto no encontrado' }
+                ) 
             } else {
                 content[index] = newProduct
             }
@@ -77,8 +82,12 @@ class Contenedor {
             const { id } = req.params;
             const content = JSON.parse(await fs.readFile(`./productos.json`,'utf-8'))
             const elementosFiltrados = content.filter(e => e.id !== parseInt(id))
-            await fs.writeFile(`./productos.json`,JSON.stringify(elementosFiltrados, null, 2))
-            res.send(elementosFiltrados)
+            if(elementosFiltrados.length === (content.length)){
+                res.send({ error : 'producto no encontrado' })
+            } else {
+                res.send(elementosFiltrados)
+                await fs.writeFile(`./productos.json`,JSON.stringify(elementosFiltrados, null, 2))
+            }
         } catch (error) {
             res.send(error)
         }

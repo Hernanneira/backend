@@ -50,7 +50,7 @@ class Contenedor {
             const content = JSON.parse(await fs.readFile(`./productos.json`,'utf-8'))
             let identificacion = Number(id)
             let index = content.findIndex(prod => prod.id === identificacion)
-            const newProduct = {title, price, thumbnail, identificacion};
+            const newProduct = {title, price, thumbnail, "id": identificacion};
             if(index === -1 ) {
                 res.send("no existe esa id") 
             } else {
